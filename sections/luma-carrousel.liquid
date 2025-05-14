@@ -1,0 +1,578 @@
+{%- style -%}
+  
+  .product-carousel {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+
+  .product-carousel__container {
+    display: flex;
+    transition: transform 0.3s ease;
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .product-carousel__item {
+    flex: 0 0 calc(50% - 5px);
+    max-width: calc(50% - 5px);
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .product-carousel__image-container {
+    position: relative;
+    margin-bottom: 15px;
+  }
+
+  .product-carousel__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-carousel__badge {
+position: absolute;
+    top: 8px;
+    background-color: #a78ad5;
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    left: 8px;
+  }
+
+  .product-carousel__title {
+      font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 3px;
+  }
+
+  .product-carousel__rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: -5px;
+  }
+
+  .product-carousel__stars {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+
+  .product-carousel__star {
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+  }
+
+  .product-carousel__reviews {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .product-carousel__description {
+   font-size: 13px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .product-carousel__colors {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+  }
+
+  .product-carousel__color {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .product-carousel__color--with-badge {
+    overflow: visible;
+  }
+
+  .product-carousel__color-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #a78ad5;
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 8px;
+    line-height: 1;
+    min-width: 14px;
+    text-align: center;
+  }
+
+  .product-carousel__color-more {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .product-carousel__button {
+    background-color: #a78ad5;
+    color: white;
+    border: none;
+    padding: 6px 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    border-radius: 6px;
+  }
+
+  .product-carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .product-carousel__nav--prev {
+    left: 10px;
+  }
+
+  .product-carousel__nav--next {
+    right: 10px;
+  }
+
+  @media (min-width: 768px) {
+    .product-carousel__item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .product-carousel__item {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+
+.product-carousel__image {
+    width: 80%;
+   
+}
+
+    
+  }
+{%- endstyle -%}
+
+<div class="product-carousel" data-carousel>
+  <div class="product-carousel__container" data-carousel-container>
+    {% for block in section.blocks %}
+      {% if block.type == 'product' %}
+        {% assign product = all_products[block.settings.product] %}
+        {% if product != blank %}
+          <div class="product-carousel__item">
+            <div class="product-carousel__image-container">
+              <a href="{{ block.settings.button_link | default: product.url }}">
+                <img 
+                  src="{{ product.featured_image | img_url: '400x560', crop: 'center' }}" 
+                  alt="{{ product.title }}" 
+                  class="product-carousel__image"
+                >
+              </a>
+              {% if block.settings.badge_text != blank %}
+                <div class="product-carousel__badge">{{ block.settings.badge_text }}</div>
+              {% endif %}
+            </div>
+            <h3 class="product-carousel__title">{{ product.title }}</h3>
+            <div class="product-carousel__rating">
+              <div class="product-carousel__stars">
+                {% assign rating_decimal = block.settings.rating | times: 10 | divided_by: 10 %}
+                {% assign rating_floor = rating_decimal | floor %}
+                
+                {% for i in (1..5) %}
+                  {% if i <= rating_floor %}
+                    <img src="https://cdn.shopify.com/s/files/1/0924/0848/0091/files/noun-star-5480646-copie_copie.webp?v=1744628497" alt="★" class="product-carousel__star">
+                  {% elsif i == rating_floor and rating_decimal > rating_floor %}
+                    <img src="https://cdn.shopify.com/s/files/1/0924/0848/0091/files/noun-star-5480646-copie_copie.webp?v=1744628497" alt="★" class="product-carousel__star">
+                  {% else %}
+                    <img src="https://cdn.shopify.com/s/files/1/0924/0848/0091/files/noun-star-5480646-copie_copie.webp?v=1744628497" alt="☆" class="product-carousel__star" style="opacity: 0.3;">
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <span class="product-carousel__reviews">({{ block.settings.review_count }})</span>
+            </div>
+            <p class="product-carousel__description">{{ block.settings.description }}</p>
+            
+            <div class="product-carousel__colors">
+              {% assign color_option_index = -1 %}
+              {% assign color_option_name = '' %}
+              
+              {% for option in product.options_with_values %}
+                {% assign option_name_downcase = option.name | downcase %}
+                {% if option_name_downcase contains 'color' or option_name_downcase contains 'colour' or option_name_downcase contains 'couleur' %}
+                  {% assign color_option_index = forloop.index0 %}
+                  {% assign color_option_name = option.name %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              
+              {% assign color_map = '
+                NOIR:#111111,
+                BOIS:#4E3639,
+                SAPHIR:#455166,
+                ÉMERAUDE:#2B4735,
+                MOCHA:#664240,
+                FUMÉE:#545859,
+                DORÉE:#8C7B5B,
+                CUIVRE:#B37A5E,
+                BRUN FONCÉ:#583C3E,
+                BLEU MARINE:#4F5B72,
+                ESTRELLA:#EFCCB9,
+                NEBULA:#74514D,
+                STARDUST:#E3B9B1,
+                black:#000000,
+                white:#FFFFFF,
+                red:#FF0000,
+                blue:#0000FF,
+                green:#008000
+              ' | split: ',' %}
+              
+              {% if color_option_index >= 0 %}
+                
+                {% assign unique_colors = '' | split: '' %}
+                
+                
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    {% assign color_value = variant.options[color_option_index] %}
+                    {% unless unique_colors contains color_value %}
+                      {% assign unique_colors = unique_colors | push: color_value %}
+                    {% endunless %}
+                  {% endif %}
+                {% endfor %}
+                
+               
+                {% assign displayed_colors = 0 %}
+                {% assign max_display = 8 %}
+                
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    {% assign color_value = variant.options[color_option_index] %}
+                    
+                    
+                    {% assign already_displayed = false %}
+                    {% for displayed_color in unique_colors %}
+                      {% if displayed_color == color_value and forloop.index <= displayed_colors %}
+                        {% assign already_displayed = true %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                    
+                    {% unless already_displayed %}
+                      {% if displayed_colors < max_display %}
+                        {% assign displayed_colors = displayed_colors | plus: 1 %}
+                        
+                        {% assign swatch_image = nil %}
+                        {% for image in variant.images %}
+                          {% if image.alt contains color_value or image.alt contains 'swatch' or image.alt contains 'color' %}
+                            {% assign swatch_image = image %}
+                            {% break %}
+                          {% endif %}
+                        {% endfor %}
+                        
+                        {% assign color_code = '' %}
+                        {% assign color_option_upper = color_value | upcase | strip %}
+                        
+                        {% for color_pair in color_map %}
+                          {% assign color_parts = color_pair | strip | split: ':' %}
+                          {% if color_parts.size == 2 %}
+                            {% assign map_name = color_parts[0] | strip | upcase %}
+                            {% if color_option_upper contains map_name %}
+                              {% assign color_code = color_parts[1] | strip %}
+                              {% break %}
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                        
+                        {% if color_code == '' %}
+                          {% assign color_code = '#' | append: block.settings.default_color | default: '888888' %}
+                        {% endif %}
+                        
+                        <div 
+                          class="product-carousel__color{% if displayed_colors == 3 %} product-carousel__color--with-badge{% endif %}" 
+                          {% if swatch_image %}
+                            style="background-image: url({{ swatch_image | img_url: '50x50', crop: 'center' }});"
+                          {% else %}
+                            style="background-color: {{ color_code }};"
+                          {% endif %}
+                          title="{{ color_value }}"
+                          data-variant-id="{{ variant.id }}"
+                          onclick="window.location.href='{{ product.url }}?variant={{ variant.id }}';"
+                        >
+                          {% if displayed_colors == 3 and block.settings.last_color_text != blank %}
+                            <span class="product-carousel__color-badge">{{ block.settings.last_color_text }}</span>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    {% endunless %}
+                  {% endif %}
+                {% endfor %}
+                
+              {% else %}
+                
+                {% assign available_variants = '' | split: '' %}
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    {% assign available_variants = available_variants | push: variant %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% assign displayed_variants = 0 %}
+                {% assign max_display = 3 %}
+                
+                {% for variant in available_variants limit: max_display %}
+                  {% assign displayed_variants = displayed_variants | plus: 1 %}
+                  
+                  <div 
+                    class="product-carousel__color{% if displayed_variants == 3 %} product-carousel__color--with-badge{% endif %}" 
+                    style="background-color: #{{ forloop.index | plus: 5 }}{{ forloop.index | plus: 3 }}{{ forloop.index | plus: 7 }};"
+                    title="Variant {{ forloop.index }}"
+                    data-variant-id="{{ variant.id }}"
+                    onclick="window.location.href='{{ product.url }}?variant={{ variant.id }}';"
+                  >
+                    {% if displayed_variants == 3 and block.settings.last_color_text != blank %}
+                      <span class="product-carousel__color-badge">{{ block.settings.last_color_text }}</span>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+                
+              {% endif %}
+            </div>
+            
+            <a href="{{ block.settings.button_link | default: product.url }}" class="product-carousel__button">
+              {{ block.settings.button_text | default: 'View details' }}
+            </a>
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <div class="product-carousel__nav product-carousel__nav--prev" data-carousel-prev>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  
+  <div class="product-carousel__nav product-carousel__nav--next" data-carousel-next>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 18L15 12L9 6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousels = document.querySelectorAll('[data-carousel]');
+    
+    carousels.forEach(carousel => {
+      const container = carousel.querySelector('[data-carousel-container]');
+      const prevBtn = carousel.querySelector('[data-carousel-prev]');
+      const nextBtn = carousel.querySelector('[data-carousel-next]');
+      const items = carousel.querySelectorAll('.product-carousel__item');
+      
+      if (!container || !prevBtn || !nextBtn || items.length === 0) return;
+      
+      let currentIndex = 0;
+      let itemsPerView = 2; 
+      
+      
+      function updateItemsPerView() {
+        if (window.innerWidth >= 992) {
+          itemsPerView = 4;
+        } else if (window.innerWidth >= 768) {
+          itemsPerView = 2;
+        } else {
+          itemsPerView = 2; 
+        }
+      }
+      
+     
+      function updateCarousel() {
+        const itemWidth = items[0].offsetWidth;
+        container.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        
+       
+        prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+        nextBtn.style.opacity = currentIndex >= items.length - itemsPerView ? '0.5' : '1';
+      }
+      
+      
+      function goToNext() {
+        const maxIndex = items.length - itemsPerView;
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateCarousel();
+        }
+      }
+      
+      
+      function goToPrev() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      }
+      
+     
+      updateItemsPerView();
+      updateCarousel();
+      
+      
+      prevBtn.addEventListener('click', goToPrev);
+      nextBtn.addEventListener('click', goToNext);
+      
+      
+      let startX, endX;
+      carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+      
+      carousel.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) { 
+          goToNext();
+        } else if (endX - startX > 50) { 
+          goToPrev();
+        }
+      }, { passive: true });
+      
+      
+      window.addEventListener('resize', () => {
+        updateItemsPerView();
+        currentIndex = 0;
+        updateCarousel();
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "LUMA Product Carousel",
+  "class": "product-carousel-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "info": "Leave empty to hide badge"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "label": "Product Rating",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "review_count",
+          "label": "Number of Reviews",
+          "default": "0"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Product Description",
+          "info": "Short description for the product"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "View details"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Custom Button Link",
+          "info": "Leave empty to use product page URL"
+        },
+        {
+          "type": "color",
+          "id": "default_color",
+          "label": "Default Color",
+          "info": "Couleur par défaut si la couleur du variant n'est pas reconnue",
+          "default": "#888888"
+        },
+        {
+          "type": "text",
+          "id": "last_color_text",
+          "label": "Texte sur la dernière couleur",
+          "default": "+X",
+          "info": "Texte à afficher sur la dernière couleur (ex: +2, +3, etc.)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LUMA Product Carousel",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

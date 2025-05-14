@@ -1,0 +1,185 @@
+<link rel="dns-prefetch" href="https://review.wsy400.com/">
+
+{% assign widget_feature_show_page = shop.metafields.ddreviews.widget_feature_show_page
+  | nil_to_string
+  | default: '1'
+%}
+
+{% assign widget_referrals_show_page = shop.metafields.ddreviews.widget_referrals_show_page
+  | nil_to_string
+  | default: '1,2,3'
+%}
+
+{% if shop.metafields.ddreviews.widget_star_enable %}
+  <script type="text/javascript" src="https://review.wsy400.com/scriptTag/star.js" defer="defer"></script>
+{% endif %}
+{% if 'index' contains request.page_type %}
+  {% if shop.metafields.ddreviews.widget_featured_enable and widget_feature_show_page contains '1' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/featured/featured.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/featured/featured.js" defer="defer"></script>
+  {% endif %}
+  {% if shop.metafields.ddreviews.widget_featured_fixed_enable %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/featuredFixed/featuredFixed.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/featuredFixed/featuredFixed.js" defer="defer"></script>
+  {% endif %}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '1' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}
+{% if request.page_type == 'collection' %}
+  {% if shop.metafields.ddreviews.widget_featured_enable and widget_feature_show_page contains '2' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/featured/featured.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/featured/featured.js" defer="defer"></script>
+  {% endif %}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '2' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}
+{% if 'product' contains request.page_type %}
+  {% if shop.metafields.ddreviews.widget_reviews_enable %}
+    <link rel="stylesheet" href="https://review.wsy400.com/scriptTag/dadao_review.css" type="text/css" media="all">
+    <script src="https://review.wsy400.com/scriptTag/dadao_review.js" defer="defer"></script>
+  {% endif %}
+  {% if shop.metafields.ddreviews.widget_faq_enable %}
+    <link rel="stylesheet" href="https://review.wsy400.com/theme-app-extension/faq/faq.css" type="text/css" media="all">
+    <script src="https://review.wsy400.com/theme-app-extension/faq/faq.js" defer="defer"></script>
+  {% endif %}
+  {% if shop.metafields.ddreviews.widget_featured_enable and widget_feature_show_page contains '3' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/featured/featured.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/featured/featured.js" defer="defer"></script>
+  {% endif %}
+
+  {% if shop.metafields.ddreviews.widget_kol_enable %}
+      <link rel="stylesheet" href="https://review.wsy400.com/theme-app-extension/kolReview/kolReview.css" type="text/css" media="all">
+      <script src="https://review.wsy400.com/theme-app-extension/kolReview/kolReview.js" defer="defer"></script>
+  {% endif %}
+
+  {% if product.metafields.ddreviews.content.enable and product.metafields.ddreviews.content.total > 0 %}
+    <script id="ddReviewSchemaJson" type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.metafields.ddreviews.content.average_star | json }}",
+        "reviewCount": "{{ product.metafields.ddreviews.content.total | string }}",
+        "itemReviewed": {
+          "@type": "Product",
+          "name": "{{ product.title}}",
+          "offers": {
+            "@type": "AggregateOffer",
+    "lowPrice": "{{ product.price_min | money_without_currency }}",
+    "highPrice": "{{ product.price_max | money_without_currency }}",
+    "priceCurrency": "{{ shop.currency }}",
+    "availability" : "http://schema.org/InStock" 
+          }
+        }
+      }
+    </script>
+  {%- endif -%}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '4' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}
+{% if request.page_type == 'cart' %}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '3' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}
+{% if request.page_type == 'list-collections' %}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '4' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}
+{% if request.page_type == 'blog' %}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '4' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}
+{% if request.page_type == 'article' %}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '4' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}
+{% if request.page_type == 'page' %}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '4' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}
+{% if request.page_type == 'search' %}
+  {% if shop.metafields.ddreviews.referrals_widget_enable and widget_referrals_show_page contains '4' %}
+    <link
+      rel="stylesheet"
+      href="https://review.wsy400.com/theme-app-extension/referrals/referrals.css"
+      type="text/css"
+      media="all"
+    >
+    <script src="https://review.wsy400.com/theme-app-extension/referrals/referrals.js" defer="defer"></script>
+  {% endif %}
+{% endif %}

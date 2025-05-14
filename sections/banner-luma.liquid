@@ -1,0 +1,137 @@
+<div class="custom-banner">
+  <div class="custom-banner__container">
+    <div class="custom-banner__icons">
+      <div class="custom-banner__badge">
+        <img src="https://cdn.shopify.com/s/files/1/0924/0848/0091/files/BADGE_OHPTA_ACC_PNG.webp?v=1744050701" alt="Hypoallergenic" class="custom-banner__badge-image">
+      </div>
+      <div class="custom-banner__badge">
+        <img src="https://cdn.shopify.com/s/files/1/0924/0848/0091/files/BADGE_1_ACC_PNG.webp?v=1744050701" alt="Sans Cruauté" class="custom-banner__badge-image">
+      </div>
+      <div class="custom-banner__badge">
+        <img src="https://cdn.shopify.com/s/files/1/0924/0848/0091/files/BADGE_SANS_CRUAUTE_ACC_PNG.webp?v=1744050701" alt="Garantie" class="custom-banner__badge-image">
+      </div>
+    </div>
+    <div class="custom-banner__text">
+      <p>Soyez éblouissante à tout âge. Soyez dans la fleur de l'âge. Avec nos produits soigneusement conçus et au pH équilibré.</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner Text",
+      "default": "Soyez éblouissante à tout âge. Soyez dans la fleur de l'âge. Avec nos produits soigneusement conçus et au pH équilibré"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_1",
+      "label": "Badge 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_2",
+      "label": "Badge 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_3",
+      "label": "Badge 3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+
+.swiper-pagination-bullet-active {
+background: #ffffff !important;
+ 
+}
+
+.swiper-pagination-bullet {
+
+border: 2px solid #FFFFFF !important;
+
+}
+
+  .custom-banner {
+    background-color: #a78ad5;
+    padding: 20px;
+    width: 100%;
+    color: white;
+  }
+
+  .custom-banner__container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .custom-banner__text p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin: 15px 0 0 0;
+    line-height: 1.4;
+  }
+
+  .custom-banner__icons {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: px;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: -5px;
+  }
+
+  .custom-banner__badge {
+    width: 33%;
+  }
+
+  .custom-banner__badge-image {
+    width: 100%;
+    height: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    .custom-banner {
+      padding: 20px;
+    }
+
+    .custom-banner__container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .custom-banner__text {
+      flex: 1;
+      padding-left: 80px;
+    }
+
+    .custom-banner__text p {
+      font-size: 26px;
+      text-align: left;
+      margin: 0;
+    }
+
+    .custom-banner__icons {
+      max-width: 375px;
+      justify-content: flex-start;
+    }
+  }
+</style>

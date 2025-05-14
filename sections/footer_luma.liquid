@@ -1,0 +1,2188 @@
+{%- liquid 
+  assign padding_horizontal = section.settings.padding_horizontal
+  assign padding_horizontal_mobile = section.settings.padding_horizontal_mobile
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign border_color = section.settings.border_color
+  assign border_thickness = section.settings.border_thickness
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+  assign margin_horizontal_mobile = section.settings.margin_horizontal_mobile
+  assign margin_horizontal = section.settings.margin_horizontal
+  assign background_color = section.settings.background_color
+  assign background_gradient = section.settings.background_gradient
+  assign full_width = section.settings.full_width
+  assign content_width = section.settings.content_width
+  assign lazy = section.settings.lazy
+  assign section_radius = section.settings.section_radius
+
+  assign block_padding_vertical = section.settings.block_padding_vertical
+  assign block_padding_vertical_mobile = section.settings.block_padding_vertical_mobile
+  assign block_padding_horizontal = section.settings.block_padding_horizontal
+  assign block_padding_horizontal_mobile = section.settings.block_padding_horizontal_mobile
+  assign block_border_thickness = section.settings.block_border_thickness
+  assign block_border_color = section.settings.block_border_color
+
+  assign text = section.settings.text
+  assign text_size = section.settings.text_size
+  assign text_size_mobile = section.settings.text_size_mobile
+  assign text_color = section.settings.text_color
+  assign text_custom = section.settings.text_custom
+  assign text_font = section.settings.text_font
+  assign text_height = section.settings.text_height
+  assign text_align = section.settings.text_align
+  assign text_align_mobile = section.settings.text_align_mobile
+
+  assign use_newsletter = section.settings.use_newsletter
+  assign newsletter_gap = section.settings.newsletter_gap
+  assign newsletter_gap_mobile = section.settings.newsletter_gap_mobile
+  assign newsletter_mt = section.settings.newsletter_mt
+  assign newsletter_mt_mobile = section.settings.newsletter_mt_mobile
+  assign newsletter_radius = section.settings.newsletter_radius
+  assign newsletter_border_thickness = section.settings.newsletter_border_thickness
+  assign newsletter_border_color = section.settings.newsletter_border_color
+
+  assign input_size = section.settings.input_size
+  assign input_size_mobile = section.settings.input_size_mobile
+  assign input_color = section.settings.input_color
+  assign input_custom = section.settings.input_custom
+  assign input_font = section.settings.input_font
+  assign input_height = section.settings.input_height
+  assign input_padding_vertical = section.settings.input_padding_vertical
+  assign input_padding_vertical_mobile = section.settings.input_padding_vertical_mobile
+  assign input_padding_horizontal = section.settings.input_padding_horizontal
+  assign input_padding_horizontal_mobile = section.settings.input_padding_horizontal_mobile
+  assign input_radius = section.settings.input_radius
+  assign input_border_thickness = section.settings.input_border_thickness
+  assign input_border_color = section.settings.input_border_color
+  assign input_placeholder_color = section.settings.input_placeholder_color
+  assign input_bg_color = section.settings.input_bg_color
+
+  assign input_placeholder = section.settings.input_placeholder
+
+  assign submit = section.settings.submit
+  assign submit_size = section.settings.submit_size
+  assign submit_size_mobile = section.settings.submit_size_mobile
+  assign submit_color = section.settings.submit_color
+  assign submit_hover_color = section.settings.submit_hover_color
+  assign submit_custom = section.settings.submit_custom
+  assign submit_font = section.settings.submit_font
+  assign submit_height = section.settings.submit_height
+  assign submit_padding_vertical = section.settings.submit_padding_vertical
+  assign submit_padding_vertical_mobile = section.settings.submit_padding_vertical_mobile
+  assign submit_padding_horizontal = section.settings.submit_padding_horizontal
+  assign submit_padding_horizontal_mobile = section.settings.submit_padding_horizontal_mobile
+  assign submit_radius = section.settings.submit_radius
+  assign submit_border_thickness = section.settings.submit_border_thickness
+  assign submit_border_color = section.settings.submit_border_color
+  assign submit_border_hover_color = section.settings.submit_border_hover_color
+  assign submit_bg_color = section.settings.submit_bg_color
+  assign submit_bg_hover_color = section.settings.submit_bg_hover_color
+
+  assign privacy_text = section.settings.privacy_text
+  assign privacy_text_size = section.settings.privacy_text_size
+  assign privacy_text_size_mobile = section.settings.privacy_text_size_mobile
+  assign privacy_text_color = section.settings.privacy_text_color
+  assign privacy_text_custom = section.settings.privacy_text_custom
+  assign privacy_text_font = section.settings.privacy_text_font
+  assign privacy_text_height = section.settings.privacy_text_height
+  assign privacy_text_align = section.settings.privacy_text_align
+  assign privacy_text_align_mobile = section.settings.privacy_text_align_mobile
+  assign privacy_text_mt = section.settings.privacy_text_mt
+  assign privacy_text_mt_mobile = section.settings.privacy_text_mt_mobile
+
+  assign column_heading_size = section.settings.column_heading_size
+  assign column_heading_size_mobile = section.settings.column_heading_size_mobile
+  assign column_heading_color = section.settings.column_heading_color
+  assign column_heading_custom = section.settings.column_heading_custom
+  assign column_heading_font = section.settings.column_heading_font
+  assign column_heading_height = section.settings.column_heading_height
+
+  assign list_gap_mobile = section.settings.list_gap_mobile
+  assign list_gap = section.settings.list_gap
+  assign list_mt = section.settings.list_mt
+  assign list_mt_mobile = section.settings.list_mt_mobile
+
+  assign link_size = section.settings.link_size
+  assign link_size_mobile = section.settings.link_size_mobile
+  assign link_color = section.settings.link_color
+  assign link_hover_color = section.settings.link_hover_color
+  assign link_custom = section.settings.link_custom
+  assign link_font = section.settings.link_font
+  assign link_height = section.settings.link_height
+
+  assign column_text_size = section.settings.column_text_size
+  assign column_text_size_mobile = section.settings.column_text_size_mobile
+  assign column_text_color = section.settings.column_text_color
+  assign column_text_custom = section.settings.column_text_custom
+  assign column_text_font = section.settings.column_text_font
+  assign column_text_height = section.settings.column_text_height
+  assign column_text_mt = section.settings.column_text_mt
+  assign column_text_mt_mobile = section.settings.column_text_mt_mobile
+  
+-%}
+
+{%- style -%}
+
+  {{  text_font | font_face: font_display: 'swap' }}
+  {{  input_font | font_face: font_display: 'swap' }}
+  {{  submit_font | font_face: font_display: 'swap' }}
+  {{  privacy_text_font | font_face: font_display: 'swap' }}
+  {{  column_heading_font | font_face: font_display: 'swap' }}
+  {{  link_font | font_face: font_display: 'swap' }}
+  {{  column_text_font | font_face: font_display: 'swap' }}
+  
+  .section-{{ section.id }} {
+    border-top: solid {{ border_color }} {{ border_thickness }}px;
+    border-bottom: solid {{ border_color }} {{ border_thickness }}px;
+    border-radius: {{ section_radius | times: 0.6 | round: 0 }}px;
+    overflow: hidden;
+  }
+  
+  .section-{{ section.id }}-settings {
+    margin: 0 auto;
+    padding-top: {{ padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-left: {{ padding_horizontal_mobile }}rem;
+    padding-right: {{ padding_horizontal_mobile }}rem;
+  }
+
+  .footer-body-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-left-{{ section.id }},
+  .footer-right-{{ section.id }} {
+    padding: {{ block_padding_vertical_mobile }}px {{ block_padding_horizontal_mobile }}px;
+  }
+
+  .footer-right-{{ section.id }} {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: {{ block_border_thickness }}px solid {{ block_border_color }};
+  }
+
+  .footer-column-{{ section.id }} {
+    flex: 1 0;
+  }
+
+  .footer-text-column-{{ section.id }} {
+    flex: 1 0 100%;
+  }
+
+  .footer-text-{{ section.id }} {
+    text-align: {{ text_align_mobile }};
+  }
+
+  .footer-text-{{ section.id }} * {
+    margin: 0;
+    font-size: {{ text_size_mobile }}px;
+    color: {{ text_color }};
+    line-height: {{ text_height }}%;
+    text-transform: unset;
+  }
+
+  .footer-newsletter-row-{{ section.id }} {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    gap: {{ newsletter_gap_mobile }}px;
+    border-radius: {{ newsletter_radius }}px;
+    overflow: hidden;
+    margin-top: {{ newsletter_mt_mobile }}px;
+  }
+
+  .footer-newsletter-input-{{ section.id }} {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    border: 0px;
+    padding: {{ input_padding_vertical_mobile }}px {{ input_padding_horizontal_mobile }}px;
+    font-size: {{ input_size_mobile }}px;
+    color: {{ input_color }};
+    line-height: {{ input_height }}%;
+    text-transform: unset;
+    border-radius: {{ input_radius }}px;
+    border: {{ input_border_thickness }}px solid {{ input_border_color }};
+    background-color: transparent;
+    background-color: {{ input_bg_color }};
+  }
+
+  .footer-newsletter-input-{{ section.id }}:focus,
+  .footer-newsletter-input-{{ section.id }}:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .footer-newsletter-input-{{ section.id }}::placeholder {
+    color: {{ input_placeholder_color }};
+  }
+
+  .footer-newsletter-submit-{{ section.id }} {
+    margin-top: 0px;
+    width: 100%;
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: {{ submit_size_mobile }}px;
+    color: {{ submit_color }};
+    line-height: {{ submit_height }}%;
+    text-align: center;
+    text-transform: unset;
+    text-decoration: none;
+    padding: {{ submit_padding_vertical_mobile }}px {{ submit_padding_horizontal_mobile }}px;
+    border-radius: {{ submit_radius }}px;
+    border: 0px;
+    border: {{ submit_border_thickness }}px solid {{ submit_border_color }};
+    background-color: transparent;
+    background-color: {{ submit_bg_color }};
+    transition: all 0.25s ease 0s;
+    box-shadow: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .footer-newsletter-submit-{{ section.id }}:hover {
+    color: {{ submit_hover_color }};
+    border: {{ submit_border_thickness }}px solid {{ submit_border_hover_color }};
+    background-color: {{ submit_bg_hover_color }};
+    transition: all 0.25s ease 0s;
+  }
+
+  .footer-newsletter-submit-{{ section.id }}::before {
+    content: '';
+    position: absolute;
+    left: -{{ newsletter_border_thickness }}px;
+    top: 0;
+    display: block;
+    width: {{ newsletter_border_thickness }}px;
+    height: 100%;
+    background-color: {{ newsletter_border_color }};
+  }
+
+  .footer-privacy-text-{{ section.id }} {
+    margin-top: {{ privacy_text_mt_mobile }}px;
+    text-align: {{ privacy_text_align_mobile }};
+  }
+
+  .footer-privacy-text-{{ section.id }} * {
+    margin: 0;
+    font-size: {{ privacy_text_size_mobile }}px;
+    color: {{ privacy_text_color }};
+    line-height: {{ privacy_text_height }}%;
+    text-transform: unset;
+  }
+
+  .footer-column-heading-{{ section.id }} {
+    margin: 0;
+    font-size: {{ column_heading_size_mobile }}px;
+    color: {{ column_heading_color }};
+    line-height: {{ column_heading_height }}%;
+    text-transform: unset;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .footer-menu-list-{{ section.id }},
+  .footer-social-list-{{ section.id }} {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: {{ list_gap_mobile }}px;
+    margin-top: {{ list_mt_mobile }}px;
+    list-style: none;
+  }
+
+  .footer-menu-item-{{ section.id }},
+  .footer-social-item-{{ section.id }} {
+    line-height: 100%;
+  }
+
+  .footer-menu-link-{{ section.id }},
+  .footer-social-link-{{ section.id }} {
+    margin: 0;
+    font-size: {{ link_size_mobile }}px;
+    color: {{ link_color }};
+    line-height: {{ link_height }}%;
+    text-transform: unset;
+    text-decoration: none;
+  }
+
+  .footer-social-link-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-social-link-{{ section.id }} svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-social-link-{{ section.id }} svg path {
+    fill: {{ link_color }};
+    transition: all 0.25s ease 0s;
+  }
+
+  .footer-column-text-{{ section.id }} {
+    margin-top: {{ column_text_mt_mobile }}px;
+  }
+
+  .footer-column-text-{{ section.id }} * {
+    margin: 0;
+    font-size: {{ column_text_size_mobile }}px;
+    color: {{ column_text_color }};
+    line-height: {{ column_text_height }}%;
+    text-transform: unset;
+    text-decoration: none;
+  }
+
+  .footer-column-text-{{ section.id }} *:not(:first-child) {
+    margin-top: 10px;
+  }
+  
+  /* Payment badges and copyright styles */
+  .payment-badges-lumaa {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .list-payment__item-lumaa {
+    display: inline-block;
+  }
+  
+  .copyright-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: {{ text_color }};
+  }
+  
+  .copyright-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Mobile footer extras */
+  .mobile-footer-extras {
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid {{ block_border_color }};
+    margin-top: 20px;
+  }
+  
+  /* Hide desktop elements on mobile */
+  @media (max-width: 1023px) {
+    .desktop-payment-badges {
+      display: none;
+    }
+    .desktop-copyright {
+      display: none;
+    }
+    .mobile-footer-extras {
+      display: block;
+    }
+  }
+  
+  /* Hide mobile elements on desktop */
+  @media (min-width: 1024px) {
+    .mobile-footer-extras {
+      display: none;
+    }
+    .desktop-copyright {
+      margin-top: 150px;
+      text-align: left;
+    }
+  }
+  
+  @media(min-width: 1024px) {
+
+    .section-{{ section.id }} {
+      border-radius: {{ section_radius }}px;
+    }
+    
+    .section-{{ section.id }}-settings {
+      padding: 0 5rem;
+      padding-top: {{ padding_top }}px;
+      padding-bottom: {{ padding_bottom }}px;
+      padding-left: {{ padding_horizontal }}rem;
+      padding-right: {{ padding_horizontal }}rem;
+    }
+
+    .footer-body-{{ section.id }} {
+      grid-template-columns: 40% 60%;
+    }
+
+    .footer-left-{{ section.id }},
+    .footer-right-{{ section.id }}{
+      padding: {{ block_padding_vertical }}px {{ block_padding_horizontal }}px;
+    }
+
+    .footer-right-{{ section.id }} {
+      border-top: 0px;
+      border-left: {{ block_border_thickness }}px solid {{ block_border_color }};
+    }
+
+    .footer-text-column-{{ section.id }} {
+      flex: 1 0 15%;
+    }
+
+    .footer-text-{{ section.id }} {
+      text-align: {{ text_align }};
+    }
+  
+    .footer-text-{{ section.id }} * {
+      font-size: {{ text_size }}px;
+    }
+
+    .footer-newsletter-row-{{ section.id }} {
+      margin-top: {{ newsletter_mt }}px;
+      gap: {{ newsletter_gap }}px;
+    }
+
+    .footer-newsletter-input-{{ section.id }} {
+      padding: {{ input_padding_vertical }}px {{ input_padding_horizontal }}px;
+      font-size: {{ input_size }}px;
+    }
+
+    .footer-newsletter-submit-{{ section.id }} {
+      padding: {{ submit_padding_vertical }}px {{ submit_padding_horizontal }}px;
+      font-size: {{ submit_size }}px;
+    }
+
+    .footer-privacy-text-{{ section.id }} {
+      margin-top: {{ privacy_text_mt }}px;
+      text-align: {{ privacy_text_align }};
+    }
+  
+    .footer-privacy-text-{{ section.id }} * {
+      font-size: {{ privacy_text_size }}px;
+    }
+
+    .footer-column-heading-{{ section.id }} {
+      font-size: {{ column_heading_size }}px;
+    }
+
+    .footer-menu-list-{{ section.id }},
+    .footer-social-list-{{ section.id }}{
+      gap: {{ list_gap }}px;
+      margin-top: {{ list_mt }}px;
+    }
+
+    .footer-menu-link-{{ section.id }},
+    .footer-social-link-{{ section.id }} {
+      font-size: {{ link_size }}px;
+      transition: all 0.25s ease 0s;
+    }
+
+    .footer-menu-link-{{ section.id }}:hover,
+    .footer-social-link-{{ section.id }}:hover {
+      transition: all 0.25s ease 0s;
+      color: {{ link_hover_color }};
+    }
+
+    .footer-social-link-{{ section.id }}:hover svg path {
+       fill: {{ link_hover_color }};
+       transition: all 0.25s ease 0s;
+    }
+
+    .footer-column-text-{{ section.id }} {
+      margin-top: {{ column_text_mt }}px;
+    }
+  
+    .footer-column-text-{{ section.id }} * {
+      font-size: {{ column_text_size }}px;
+    }
+  }
+  
+{%- endstyle -%}
+
+{% unless full_width %}
+  <style>
+    .section-{{ section.id }}-settings {
+      max-width: 100% !important;
+    width: 100%;
+    }
+  </style>
+{% endunless %}
+
+{% if margin_horizontal_mobile > 0 %}
+  <style>
+    .section-{{ section.id }} {
+      width: 100vw;
+    max-width: 100%;
+      border-left: solid {{ border_color }} {{ border_thickness }}px;
+      border-right: solid {{ border_color }} {{ border_thickness }}px;
+    }
+    
+    @media(min-width: 1024px) {
+      .section-{{ section.id }} {
+        border-left: 0px;
+        border-right: 0px;
+      }
+    }
+  </style>
+{% endif %}
+
+{% if margin_horizontal > 0 %}
+  <style>
+    @media(min-width: 1024px) {
+      .section-{{ section.id }} {
+        border-left: solid {{ border_color }} {{ border_thickness }}px;
+        border-right: solid {{ border_color }} {{ border_thickness }}px;
+      }
+    }
+  </style>
+{% endif %}
+
+{% if input_custom %}
+  <style>
+    .footer-newsletter-input-{{ section.id }} {
+      font-family: {{ input_font.family }}, {{ input_font.fallback_families }};
+      font-weight: {{ input_font.weight }};
+      font-style: {{ input_font.style }};
+    }
+  </style>
+{% endif %}
+
+{% if submit_custom %}
+  <style>
+    .footer-newsletter-submit-{{ section.id }} {
+      font-family: {{ submit_font.family }}, {{ submit_font.fallback_families }};
+      font-weight: {{ submit_font.weight }};
+      font-style: {{ submit_font.style }};
+    }
+  </style>
+{% endif %}
+
+{% if text_custom %}
+  <style>
+    .footer-text-{{ section.id }} * {
+      font-family: {{ text_font.family }}, {{ text_font.fallback_families }};
+      font-weight: {{ text_font.weight }};
+      font-style: {{ text_font.style }};
+    }
+  </style>
+{% endif %}
+
+{% if privacy_text_custom %}
+  <style>
+    .footer-privacy-text-{{ section.id }} * {
+      font-family: {{ privacy_text_font.family }}, {{ privacy_text_font.fallback_families }};
+      font-weight: {{ privacy_text_font.weight }};
+      font-style: {{ privacy_text_font.style }};
+    }
+  </style>
+{% endif %}
+
+{% if column_heading_custom %}
+  <style>
+    .footer-column-heading-{{ section.id }} {
+      font-family: {{ column_heading_font.family }}, {{ column_heading_font.fallback_families }};
+      font-weight: {{ column_heading_font.weight }};
+      font-style: {{ column_heading_font.style }};
+    }
+  </style>
+{% endif %}
+
+{% if link_custom %}
+  <style>
+    .footer-menu-link-{{ section.id }},
+    .footer-social-link-{{ section.id }} {
+      font-family: {{ link_font.family }}, {{ link_font.fallback_families }};
+      font-weight: {{ link_font.weight }};
+      font-style: {{ link_font.style }};
+    }
+  </style>
+{% endif %}
+
+{% if column_text_custom %}
+  <style>
+    .footer-column-text-{{ section.id }} {
+      font-family: {{ column_text_font.family }}, {{ column_text_font.fallback_families }};
+      font-weight: {{ column_text_font.weight }};
+      font-style: {{ column_text_font.style }};
+    }
+  </style>
+{% endif %}
+
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'logo' %}
+
+      <style>
+      
+      {{ block.settings.text_font | font_face: font_display: 'swap' }}
+      
+      .footer-logo-{{ block.id }} {
+        padding: {{ block_padding_vertical_mobile }}px {{ block_padding_horizontal_mobile }}px;
+        border-bottom: {{ block_border_thickness }}px solid {{ block_border_color }};
+      }
+
+      .footer-logo-image-{{ block.id }} {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: {{ block.settings.image_width_mobile }}%;
+      }
+
+      .footer-logo-image-{{ block.id }} img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .footer-logo-text-{{ block.id }} {
+        display: block;
+        text-decoration: none;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .footer-logo-text-{{ block.id }} * {
+        margin: 0;
+        font-size: {{ block.settings.text_size_mobile }}px;
+        color: {{ block.settings.text_color }};
+        line-height: {{ block.settings.text_height }}%;
+        text-transform: unset;
+        text-decoration: none;
+      }
+
+      @media(min-width: 1024px) {
+        
+        .footer-logo-{{ block.id }} {
+          padding: {{ block_padding_vertical }}px {{ block_padding_horizontal }}px;
+        }
+
+        .footer-logo-image-{{ block.id }} {
+          max-width: {{ block.settings.image_width }}%;
+        }
+
+        .footer-logo-text-{{ block.id }} * {
+          font-size: {{ block.settings.text_size }}px;
+        }
+      }
+    </style>
+
+    {% if block.settings.text_custom %}
+      <style>
+        .footer-logo-text-{{ block.id }} * {
+          font-family: {{ block.settings.text_font.family }}, {{ block.settings.text_font.fallback_families }};
+          font-weight: {{ block.settings.text_font.weight }};
+          font-style: {{ block.settings.text_font.style }};
+        }
+      </style>
+    {% endif %}
+
+    
+  {% endcase %}
+{% endfor %}
+
+<div class="section-{{ section.id }} footer-{{ section.id }}" style="background-color:{{ background_color }}; background-image: {{ background_gradient }};">
+    <div class="section-{{ section.id }}-settings">
+      {% for block in section.blocks %}
+        {% if block.type == "logo" %}
+          <div class="footer-logo-{{ block.id }}">
+            {% if block.settings.logo != blank %}
+              <a href="{{ shop.url }}" class="footer-logo-image-{{ block.id }}">
+                <img src="{{ block.settings.logo | image_url }}" alt="{{ block.settings.logo.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+              </a>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <a href="{{ shop.url }}" class="footer-logo-text-{{ block.id }}">{{ block.settings.text }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      <div class="footer-body-{{ section.id }}">
+        <div class="footer-left-{{ section.id }}">
+          {% if text != blank %}
+            <div class="footer-text-{{ section.id }}">
+              {{ text }}
+            </div>
+          {% endif %}
+          {% if use_newsletter %}
+            {% form 'customer', class: 'footer-newsletter-form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+  
+              <div class="footer-newsletter-row-{{ section.id }}">
+                <input
+                  type="email"
+                  name="contact[email]"
+                  class="footer-newsletter-input-{{ section.id }}"
+                  value="{{ form.email }}"
+                  aria-required="true"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {% if form.errors %}
+                    autofocus
+                    aria-invalid="true"
+                    aria-describedby="Newsletter-error--{{ section.id }}"
+                  {% elsif form.posted_successfully? %}
+                    aria-describedby="Newsletter-success--{{ section.id }}"
+                  {% endif %}
+                  placeholder="{{ input_placeholder }}"
+                  required
+                >
+                <button type="submit" class="footer-newsletter-submit-{{ section.id }}" name="commit">
+                  {{ submit }}
+                </button>
+              </div>
+            {% endform %}
+          {% endif %}
+
+          {% if privacy_text != blank %}
+            <div class="footer-privacy-text-{{ section.id }}">
+              {{ privacy_text }}
+            </div>
+          {% endif %}
+          
+          <!-- Payment badges for desktop -->
+          <div class="desktop-payment-badges">
+            <ul class="payment-badges-lumaa" role="list">
+                <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-american_express" viewBox="0 0 38 24" width="38" height="24"><title id="pi-american_express">American Express</title><path fill="#000" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z" opacity=".07"></path><path fill="#006FCF" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32Z"></path><path fill="#FFF" d="M22.012 19.936v-8.421L37 11.528v2.326l-1.732 1.852L37 17.573v2.375h-2.766l-1.47-1.622-1.46 1.628-9.292-.02Z"></path><path fill="#006FCF" d="M23.013 19.012v-6.57h5.572v1.513h-3.768v1.028h3.678v1.488h-3.678v1.01h3.768v1.531h-5.572Z"></path><path fill="#006FCF" d="m28.557 19.012 3.083-3.289-3.083-3.282h2.386l1.884 2.083 1.89-2.082H37v.051l-3.017 3.23L37 18.92v.093h-2.307l-1.917-2.103-1.898 2.104h-2.321Z"></path><path fill="#FFF" d="M22.71 4.04h3.614l1.269 2.881V4.04h4.46l.77 2.159.771-2.159H37v8.421H19l3.71-8.421Z"></path><path fill="#006FCF" d="m23.395 4.955-2.916 6.566h2l.55-1.315h2.98l.55 1.315h2.05l-2.904-6.566h-2.31Zm.25 3.777.875-2.09.873 2.09h-1.748Z"></path><path fill="#006FCF" d="M28.581 11.52V4.953l2.811.01L32.84 9l1.456-4.046H37v6.565l-1.74.016v-4.51l-1.644 4.494h-1.59L30.35 7.01v4.51h-1.768Z"></path></svg></li>
+                <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" x="0" y="0" width="38" height="24" viewBox="0 0 165.521 105.965" xml:space="preserve" aria-labelledby="pi-apple_pay"><title id="pi-apple_pay">Apple Pay</title><path fill="#000" d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z"></path><path fill="#FFF" d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875"></path><g><g><path fill="#000" d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858"></path><path fill="#000" d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048"></path></g><g><path fill="#000" d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z"></path><path fill="#000" d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z"></path><path fill="#000" d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z"></path></g></g></svg></li>
+                <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-google_pay"><title id="pi-google_pay">Google Pay</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"></path><path d="M18.093 11.976v3.2h-1.018v-7.9h2.691a2.447 2.447 0 0 1 1.747.692 2.28 2.28 0 0 1 .11 3.224l-.11.116c-.47.447-1.098.69-1.747.674l-1.673-.006zm0-3.732v2.788h1.698c.377.012.741-.135 1.005-.404a1.391 1.391 0 0 0-1.005-2.354l-1.698-.03zm6.484 1.348c.65-.03 1.286.188 1.778.613.445.43.682 1.03.65 1.649v3.334h-.969v-.766h-.049a1.93 1.93 0 0 1-1.673.931 2.17 2.17 0 0 1-1.496-.533 1.667 1.667 0 0 1-.613-1.324 1.606 1.606 0 0 1 .613-1.336 2.746 2.746 0 0 1 1.698-.515c.517-.02 1.03.093 1.49.331v-.208a1.134 1.134 0 0 0-.417-.901 1.416 1.416 0 0 0-.98-.368 1.545 1.545 0 0 0-1.319.717l-.895-.564a2.488 2.488 0 0 1 2.182-1.06zM23.29 13.52a.79.79 0 0 0 .337.662c.223.176.5.269.785.263.429-.001.84-.17 1.146-.472.305-.286.478-.685.478-1.103a2.047 2.047 0 0 0-1.324-.374 1.716 1.716 0 0 0-1.03.294.883.883 0 0 0-.392.73zm9.286-3.75l-3.39 7.79h-1.048l1.281-2.728-2.224-5.062h1.103l1.612 3.885 1.569-3.885h1.097z" fill="#5F6368"></path><path d="M13.986 11.284c0-.308-.024-.616-.073-.92h-4.29v1.747h2.451a2.096 2.096 0 0 1-.9 1.373v1.134h1.464a4.433 4.433 0 0 0 1.348-3.334z" fill="#4285F4"></path><path d="M9.629 15.721a4.352 4.352 0 0 0 3.01-1.097l-1.466-1.14a2.752 2.752 0 0 1-4.094-1.44H5.577v1.17a4.53 4.53 0 0 0 4.052 2.507z" fill="#34A853"></path><path d="M7.079 12.05a2.709 2.709 0 0 1 0-1.735v-1.17H5.577a4.505 4.505 0 0 0 0 4.075l1.502-1.17z" fill="#FBBC04"></path><path d="M9.629 8.44a2.452 2.452 0 0 1 1.74.68l1.3-1.293a4.37 4.37 0 0 0-3.065-1.183 4.53 4.53 0 0 0-4.027 2.5l1.502 1.171a2.715 2.715 0 0 1 2.55-1.875z" fill="#EA4335"></path></svg></li>
+                <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-maestro"><title id="pi-maestro">Maestro</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#00A2E5" cx="23" cy="12" r="7"></circle><path fill="#7375CF" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg></li>
+                <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-master"><title id="pi-master">Mastercard</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#F79E1B" cx="23" cy="12" r="7"></circle><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg></li>
+                <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-visa"><title id="pi-visa">Visa</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg></li>
+            </ul>
+          </div>
+          
+          <!-- Copyright for desktop -->
+          <div class="desktop-copyright">
+            <div class="copyright-container">
+              <svg class="copyright-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M15 9.354a4 4 0 1 0 0 5.292"></path>
+              </svg>
+              <span>Luma Cosmetics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-right-{{ section.id }}">
+          {% for block in section.blocks %}
+            {% if block.type == "column" %}
+              <div class="footer-column-{{ section.id }}">
+                {% if block.settings.heading != blank %}
+                  <p class="footer-column-heading-{{ section.id }}">{{ block.settings.heading }}</p>
+                {% endif %}
+
+                {% if block.settings.menu != blank %}
+                  <ul class="footer-menu-list-{{ section.id }}">
+                    {% for link in block.settings.menu.links %}
+                      <li class="footer-menu-item-{{ section.id }}">
+                        <a href="{{ link.url }}" class="footer-menu-link-{{ section.id }}">{{ link.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
+              </div>
+            {% elsif block.type == "text" %}
+              <div class="footer-column-{{ section.id }} footer-text-column-{{ section.id }}">
+                {% if block.settings.heading != blank %}
+                  <p class="footer-column-heading-{{ section.id }}">{{ block.settings.heading }}</p>
+                {% endif %}
+                
+                {% if block.settings.text != blank %}
+                  <div class="footer-column-text-{{ section.id }}">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+                
+              </div>
+
+            {% elsif block.type == "socials" %}
+              <div class="footer-column-{{ section.id }}">
+                {% if block.settings.heading != blank %}
+                  <p class="footer-column-heading-{{ section.id }}">{{ block.settings.heading }}</p>
+                {% endif %}
+                
+                <ul class="footer-social-list-{{ section.id }}">
+                  {% if block.settings.instagram != blank %}
+                    <li class="footer-social-item-{{ section.id }}">
+                      <a class="footer-social-link-{{ section.id }}" href="{{ block.settings.instagram }}">
+                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <title>Instagram icon</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"></path>
+                        </svg>
+                        {{ block.settings.instagram_text }}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.facebook != blank %}
+                    <li class="footer-social-item-{{ section.id }}">
+                      <a class="footer-social-link-{{ section.id }}" href="{{ block.settings.facebook }}">
+                        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 18" fill="none" class="w-16 h-16">
+                    		<path d="M5.15 17.14h-3.1v-8.5H0V5.72h2.06V3.99c0-2.4.62-3.85 3.35-3.85h2.27v2.94H6.26c-1.06 0-1.11.4-1.11 1.16v1.47H7.7l-.3 2.93H5.14v8.5Z" fill="currentColor"></path>
+                    	</svg>
+                        {{ block.settings.facebook_text }}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.twitter != blank %}
+                    <li class="footer-social-item-{{ section.id }}">
+                      <a class="footer-social-link-{{ section.id }}" href="{{ block.settings.twitter }}">
+                        <svg alt="" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M19 9.5C19 14.7467 14.7467 19 9.5 19C4.25329 19 0 14.7467 0 9.5C0 4.25329 4.25329 0 9.5 0C14.7467 0 19 4.25329 19 9.5ZM8.18721 10.0675L3.64633 3.99603H7.14609L10.123 7.97639L13.8073 3.99603H14.8358L10.5825 8.59099L15.379 15.0039H11.8792L8.64689 10.6819L4.6462 15.0039H3.61771L8.18721 10.0675ZM6.76655 4.75353H5.15877L12.2586 14.2464H13.8663L6.76655 4.75353Z" fill="{{ footer_border_color }}"></path>
+                        </svg>
+                        {{ block.settings.twitter_text }}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.linkedin != blank %}
+                    <li class="footer-social-item-{{ section.id }}">
+                      <a class="footer-social-link-{{ section.id }}" href="{{ block.settings.linkedin }}">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        	<path d="M1.82 0C.82 0 0 .82 0 1.82v12.36C0 15.18.82 16 1.82 16h12.36c1 0 1.82-.82 1.82-1.82V1.82c0-1-.82-1.82-1.82-1.82H1.82Zm0 1.45h12.36c.2 0 .37.16.37.37v12.36c0 .2-.16.37-.37.37H1.82a.36.36 0 0 1-.37-.37V1.82c0-.2.16-.37.37-.37ZM3.95 2.7a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Zm6.57 3.32c-1.04 0-1.73.57-2.02 1.12h-.05v-.96H6.41v6.91h2.14V9.7c0-.9.17-1.78 1.3-1.78 1.09 0 1.1 1.02 1.1 1.82v3.36h2.14V9.3c0-1.85-.4-3.27-2.57-3.27Zm-7.61.16v6.91h2.16V6.2H2.9Z" fill="currentColor"></path>
+                    	</svg>
+                        {{ block.settings.linkedin_text }}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.youtube != blank %}
+                    <li class="footer-social-item-{{ section.id }}">
+                      <a class="footer-social-link-{{ section.id }}" href="{{ block.settings.youtube }}">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <title>YouTube icon</title><path d="M23.499 6.203a3.008 3.008 0 00-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 00-2.088 2.09A31.258 31.26 0 000 12.01a31.258 31.26 0 00.523 5.785 3.008 3.008 0 002.088 2.089c1.869.502 9.4.502 9.4.502s7.508 0 9.399-.502a3.008 3.008 0 002.089-2.09 31.258 31.26 0 00.5-5.784 31.258 31.26 0 00-.5-5.808zm-13.891 9.4V8.407l6.266 3.604z"></path>
+                        </svg>
+                        {{ block.settings.youtube_text }}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.pinterest != blank %}
+                    <li class="footer-social-item-{{ section.id }}">
+                      <a class="footer-social-link-{{ section.id }}" href="{{ block.settings.pinterest }}">
+                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <title>Pinterest icon</title><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"></path>
+                        </svg>
+                        {{ block.settings.pinterest_text }}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.whatsapp != blank %}
+                    <li class="footer-social-item-{{ section.id }}">
+                      <a class="footer-social-link-{{ section.id }}" href="{{ block.settings.whatsapp }}">
+                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                        </svg>
+                        {{ block.settings.whatsapp_text }}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.tiktok != blank %}
+                    <li class="footer-social-item-{{ section.id }}">
+                      <a class="footer-social-link-{{ section.id }}" href="{{ block.settings.tiktok }}">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <title>TikTok icon</title><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path>
+                        </svg>
+                        {{ block.settings.tiktok_text }}
+                      </a>
+                    </li>
+                  {% endif %}
+                </ul>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      
+   
+      <div class="mobile-footer-extras">
+        <ul class="payment-badges-lumaa" role="list">
+            <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-american_express" viewBox="0 0 38 24" width="38" height="24"><title id="pi-american_express">American Express</title><path fill="#000" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z" opacity=".07"></path><path fill="#006FCF" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32Z"></path><path fill="#FFF" d="M22.012 19.936v-8.421L37 11.528v2.326l-1.732 1.852L37 17.573v2.375h-2.766l-1.47-1.622-1.46 1.628-9.292-.02Z"></path><path fill="#006FCF" d="M23.013 19.012v-6.57h5.572v1.513h-3.768v1.028h3.678v1.488h-3.678v1.01h3.768v1.531h-5.572Z"></path><path fill="#006FCF" d="m28.557 19.012 3.083-3.289-3.083-3.282h2.386l1.884 2.083 1.89-2.082H37v.051l-3.017 3.23L37 18.92v.093h-2.307l-1.917-2.103-1.898 2.104h-2.321Z"></path><path fill="#FFF" d="M22.71 4.04h3.614l1.269 2.881V4.04h4.46l.77 2.159.771-2.159H37v8.421H19l3.71-8.421Z"></path><path fill="#006FCF" d="m23.395 4.955-2.916 6.566h2l.55-1.315h2.98l.55 1.315h2.05l-2.904-6.566h-2.31Zm.25 3.777.875-2.09.873 2.09h-1.748Z"></path><path fill="#006FCF" d="M28.581 11.52V4.953l2.811.01L32.84 9l1.456-4.046H37v6.565l-1.74.016v-4.51l-1.644 4.494h-1.59L30.35 7.01v4.51h-1.768Z"></path></svg></li>
+            <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" x="0" y="0" width="38" height="24" viewBox="0 0 165.521 105.965" xml:space="preserve" aria-labelledby="pi-apple_pay"><title id="pi-apple_pay">Apple Pay</title><path fill="#000" d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z"></path><path fill="#FFF" d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875"></path><g><g><path fill="#000" d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858"></path><path fill="#000" d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048"></path></g><g><path fill="#000" d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z"></path><path fill="#000" d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z"></path><path fill="#000" d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z"></path></g></g></svg></li>
+            <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-google_pay"><title id="pi-google_pay">Google Pay</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"></path><path d="M18.093 11.976v3.2h-1.018v-7.9h2.691a2.447 2.447 0 0 1 1.747.692 2.28 2.28 0 0 1 .11 3.224l-.11.116c-.47.447-1.098.69-1.747.674l-1.673-.006zm0-3.732v2.788h1.698c.377.012.741-.135 1.005-.404a1.391 1.391 0 0 0-1.005-2.354l-1.698-.03zm6.484 1.348c.65-.03 1.286.188 1.778.613.445.43.682 1.03.65 1.649v3.334h-.969v-.766h-.049a1.93 1.93 0 0 1-1.673.931 2.17 2.17 0 0 1-1.496-.533 1.667 1.667 0 0 1-.613-1.324 1.606 1.606 0 0 1 .613-1.336 2.746 2.746 0 0 1 1.698-.515c.517-.02 1.03.093 1.49.331v-.208a1.134 1.134 0 0 0-.417-.901 1.416 1.416 0 0 0-.98-.368 1.545 1.545 0 0 0-1.319.717l-.895-.564a2.488 2.488 0 0 1 2.182-1.06zM23.29 13.52a.79.79 0 0 0 .337.662c.223.176.5.269.785.263.429-.001.84-.17 1.146-.472.305-.286.478-.685.478-1.103a2.047 2.047 0 0 0-1.324-.374 1.716 1.716 0 0 0-1.03.294.883.883 0 0 0-.392.73zm9.286-3.75l-3.39 7.79h-1.048l1.281-2.728-2.224-5.062h1.103l1.612 3.885 1.569-3.885h1.097z" fill="#5F6368"></path><path d="M13.986 11.284c0-.308-.024-.616-.073-.92h-4.29v1.747h2.451a2.096 2.096 0 0 1-.9 1.373v1.134h1.464a4.433 4.433 0 0 0 1.348-3.334z" fill="#4285F4"></path><path d="M9.629 15.721a4.352 4.352 0 0 0 3.01-1.097l-1.466-1.14a2.752 2.752 0 0 1-4.094-1.44H5.577v1.17a4.53 4.53 0 0 0 4.052 2.507z" fill="#34A853"></path><path d="M7.079 12.05a2.709 2.709 0 0 1 0-1.735v-1.17H5.577a4.505 4.505 0 0 0 0 4.075l1.502-1.17z" fill="#FBBC04"></path><path d="M9.629 8.44a2.452 2.452 0 0 1 1.74.68l1.3-1.293a4.37 4.37 0 0 0-3.065-1.183 4.53 4.53 0 0 0-4.027 2.5l1.502 1.171a2.715 2.715 0 0 1 2.55-1.875z" fill="#EA4335"></path></svg></li>
+            <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-maestro"><title id="pi-maestro">Maestro</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#00A2E5" cx="23" cy="12" r="7"></circle><path fill="#7375CF" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg></li>
+            <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-master"><title id="pi-master">Mastercard</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#F79E1B" cx="23" cy="12" r="7"></circle><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg></li>
+            <li class="list-payment__item-lumaa"><svg class="icon icon--full-color-lumaa" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-visa"><title id="pi-visa">Visa</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg></li>
+        </ul>
+        
+        <div class="copyright-container" style="justify-content: center; margin-top: 15px;">
+          <svg class="copyright-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M15 9.354a4 4 0 1 0 0 5.292"></path>
+          </svg>
+          <span>Luma Cosmetics</span>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Footer LUMA",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Blocks settings"
+      },
+      {
+        "type": "range",
+        "id": "block_padding_vertical",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding vertical",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "block_padding_vertical_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding vertical - mobile",
+        "default": 28
+      },
+      {
+         "type": "range",
+         "id": "block_padding_horizontal",
+         "min": 0,
+         "max": 100,
+         "step": 2,
+         "unit": "px",
+         "label": "Padding horizontal",
+         "default": 40
+      },
+      {
+         "type": "range",
+         "id": "block_padding_horizontal_mobile",
+         "min": 0,
+         "max": 100,
+         "step": 2,
+         "unit": "px",
+         "label": "Padding horizontal - mobile",
+         "default": 16
+      },
+      {
+         "type": "range",
+         "id": "block_border_thickness",
+         "min": 0,
+         "max": 10,
+         "step": 1,
+         "unit": "px",
+         "label": "Border thickness",
+         "default": 1
+      },
+      {
+        "type": "header",
+        "content": "Text settings"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Subscribe to our newsletter for weekly excerpts, exclusive content, and special offers delivered straight to your inbox.</p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "text_custom",
+        "label": "Use custom font",
+        "default": false
+      },
+      {
+        "type": "font_picker",
+        "id": "text_font",
+        "label": "Font family",
+        "default": "josefin_sans_n4"
+      },
+      {
+        "type": "range",
+        "id": "text_size",
+        "min": 0,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "text_size_mobile",
+        "min": 0,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size - mobile",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "text_height",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "%",
+        "label": "Line height",
+        "default": 150
+      },
+      {
+        "type": "text_alignment",
+        "id": "text_align",
+        "label": "Alignment"
+      },
+      {
+        "type": "text_alignment",
+        "id": "text_align_mobile",
+        "label": "Alignmnet - mobile"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_newsletter",
+        "label": "Use newsletter form",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "newsletter_radius",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Roundness",
+        "default": 12
+      },
+      {
+        "type": "range",
+        "id": "newsletter_border_thickness",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Border thickness between items",
+        "default": 1
+      },
+      {
+         "type": "range",
+         "id": "newsletter_gap",
+         "min": 0,
+         "max": 50,
+         "step": 2,
+         "unit": "px",
+         "label": "Gap",
+         "default": 0
+      },
+      {
+         "type": "range",
+         "id": "newsletter_gap_mobile",
+         "min": 0,
+         "max": 50,
+         "step": 2,
+         "unit": "px",
+         "label": "Gap - mobile",
+         "default": 0
+      },
+      {
+         "type": "range",
+         "id": "newsletter_mt",
+         "min": 0,
+         "max": 100,
+         "step": 2,
+         "unit": "px",
+         "label": "Margin top",
+         "default": 16
+      },
+      {
+         "type": "range",
+         "id": "newsletter_mt_mobile",
+         "min": 0,
+         "max": 100,
+         "step": 2,
+         "unit": "px",
+         "label": "Margin top - mobile",
+         "default": 14
+      },
+      {
+        "type": "header",
+        "content": "Newsletter input settings"
+      },
+            {
+        "type": "text",
+        "id": "input_placeholder",
+        "label": "Placeholder text",
+        "default": "Email Address" 
+      },
+      {
+        "type": "checkbox",
+        "id": "input_custom",
+        "label": "Use custom font",
+        "default": false
+      },
+      {
+        "type": "font_picker",
+        "id": "input_font",
+        "label": "Font family",
+        "default": "josefin_sans_n4"
+      },
+      {
+        "type": "range",
+        "id": "input_size",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "input_size_mobile",
+        "min": 0,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size - mobile",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "input_height",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "%",
+        "label": "Line height",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "input_padding_vertical",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding vertical",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "input_padding_vertical_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding vertical - mobile",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "input_padding_horizontal",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding horizontal",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "input_padding_horizontal_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding horizontal - mobile",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "input_radius",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Roundness",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "input_border_thickness",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Border thickness",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Newsletter button settings"
+      },
+      {
+        "type": "text",
+        "id": "submit",
+        "label": "Text",
+        "default": "SUBSCRIBE"
+      },
+      {
+        "type": "checkbox",
+        "id": "submit_custom",
+        "label": "Use custom font",
+        "default": false
+      },
+      {
+        "type": "font_picker",
+        "id": "submit_font",
+        "label": "Font family",
+        "default": "josefin_sans_n4"
+      },
+      {
+        "type": "range",
+        "id": "submit_size",
+        "min": 0,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "submit_size_mobile",
+        "min": 0,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size - mobile",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "submit_height",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "%",
+        "label": "Line height",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "submit_padding_vertical",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding vertical",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "submit_padding_vertical_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding vertical - mobile",
+        "default": 16
+      },
+      {
+         "type": "range",
+         "id": "submit_padding_horizontal",
+         "min": 0,
+         "max": 100,
+         "step": 2,
+         "unit": "px",
+         "label": "Padding horizontal",
+         "default": 24
+      },
+      {
+         "type": "range",
+         "id": "submit_padding_horizontal_mobile",
+         "min": 0,
+         "max": 100,
+         "step": 2,
+         "unit": "px",
+         "label": "Padding horizontal - mobile",
+         "default": 24
+      },
+      {
+         "type": "range",
+         "id": "submit_radius",
+         "min": 0,
+         "max": 50,
+         "step": 2,
+         "unit": "px",
+         "label": "Roundness",
+         "default": 0
+      },
+      {
+         "type": "range",
+         "id": "submit_border_thickness",
+         "min": 0,
+         "max": 10,
+         "step": 1,
+         "unit": "px",
+         "label": "Border thickness",
+         "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Privacy text settings"
+      },
+      {
+        "type": "richtext",
+        "id": "privacy_text",
+        "label": "Text",
+        "default": "<p>By signing up, you agree to our <a href='#'>Privacy Policy*.</a></p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "privacy_text_custom",
+        "label": "Use custom font",
+        "default": false
+      },
+      {
+        "type": "font_picker",
+        "id": "privacy_text_font",
+        "label": "Font family",
+        "default": "josefin_sans_n4"
+      },
+      {
+        "type": "range",
+        "id": "privacy_text_size",
+        "min": 0,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "privacy_text_size_mobile",
+        "min": 0,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "Font size - mobile",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "privacy_text_height",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "%",
+        "label": "Line height",
+        "default": 150
+      },
+      {
+        "type": "range",
+        "id": "privacy_text_mt",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin top",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "privacy_text_mt_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin top - mobile",
+        "default": 16
+      },
+      {
+        "type": "text_alignment",
+        "id": "privacy_text_align",
+        "label": "Alignment"
+      },
+      {
+        "type": "text_alignment",
+        "id": "privacy_text_align_mobile",
+        "label": "Alignmnet - mobile"
+      },
+      {
+        "type": "header",
+        "content": "Menu heading settings"
+      },
+      {
+          "type": "checkbox",
+          "id": "column_heading_custom",
+          "label": "Use custom font",
+          "default": false
+      },
+      {
+          "type": "font_picker",
+          "id": "column_heading_font",
+          "label": "Font family",
+          "default": "josefin_sans_n4"
+      },
+      {
+          "type": "range",
+          "id": "column_heading_size",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
+      },
+      {
+          "type": "range",
+          "id": "column_heading_size_mobile",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size - mobile",
+          "default": 14
+      },
+      {
+          "type": "range",
+          "id": "column_heading_height",
+          "min": 50,
+          "max": 200,
+          "step": 10,
+          "unit": "%",
+          "label": "Line height",
+          "default": 130
+      },
+      {
+        "type": "header",
+        "content": "Menu list settings"
+      },
+      {
+        "type": "range",
+        "id": "list_mt",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin top",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "list_mt_mobile",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin top - mobile",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "list_gap",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Gap",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "list_gap_mobile",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Gap - mobile",
+        "default": 16
+      },
+      {
+        "type": "header",
+        "content": "Menu link settings"
+      },
+      {
+          "type": "checkbox",
+          "id": "link_custom",
+          "label": "Use custom font",
+          "default": false
+      },
+      {
+          "type": "font_picker",
+          "id": "link_font",
+          "label": "Font family",
+          "default": "josefin_sans_n4"
+      },
+      {
+          "type": "range",
+          "id": "link_size",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
+      },
+      {
+          "type": "range",
+          "id": "link_size_mobile",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size - mobile",
+          "default": 14
+      },
+      {
+          "type": "range",
+          "id": "link_height",
+          "min": 50,
+          "max": 200,
+          "step": 10,
+          "unit": "%",
+          "label": "Line height",
+          "default": 130
+      },
+      {
+        "type": "header",
+        "content": "Info text settings"
+      },
+      {
+          "type": "checkbox",
+          "id": "column_text_custom",
+          "label": "Use custom font",
+          "default": false
+      },
+      {
+          "type": "font_picker",
+          "id": "column_text_font",
+          "label": "Font family",
+          "default": "josefin_sans_n4"
+      },
+      {
+          "type": "range",
+          "id": "column_text_size",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
+      },
+      {
+          "type": "range",
+          "id": "column_text_size_mobile",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size - mobile",
+          "default": 14
+      },
+      {
+          "type": "range",
+          "id": "column_text_height",
+          "min": 50,
+          "max": 200,
+          "step": 10,
+          "unit": "%",
+          "label": "Line height",
+          "default": 150
+      },
+      {
+          "type": "range",
+          "id": "column_text_mt",
+          "min": 0,
+          "max": 50,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin top",
+          "default": 16
+      },
+      {
+          "type": "range",
+          "id": "column_text_mt_mobile",
+          "min": 0,
+          "max": 50,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin top - mobile",
+          "default": 14
+      },
+      {
+        "type": "header",
+        "content": "Block colors"
+      },
+      {
+        "type": "color",
+        "label": "Border",
+        "id": "block_border_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "header",
+        "content": "Text colors"
+      },
+      {
+        "type": "color",
+        "label": "Text",
+        "id": "text_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Privacy text",
+        "id": "privacy_text_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter colors"
+      },
+      {
+        "type": "color",
+        "label": "Border",
+        "id": "newsletter_border_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter input colors"
+      },
+      {
+        "type": "color",
+        "label": "Background",
+        "id": "input_bg_color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "label": "Border",
+        "id": "input_border_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Text",
+        "id": "input_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Placeholder",
+        "id": "input_placeholder_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter button colors"
+      },
+      {
+        "type": "color",
+        "label": "Text",
+        "id": "submit_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Text hover",
+        "id": "submit_hover_color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "label": "Background",
+        "id": "submit_bg_color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "label": "Background hover",
+        "id": "submit_bg_hover_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Button border",
+        "id": "submit_border_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Border hover",
+        "id": "submit_border_hover_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "header",
+        "content": "Menu colors"
+      },
+      {
+        "type": "color",
+        "label": "Heading",
+        "id": "column_heading_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Text",
+        "id": "column_text_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Link",
+        "id": "link_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "color",
+        "label": "Link hover",
+        "id": "link_hover_color",
+        "default": "#84827E"
+      },
+      {
+        "type": "header",
+        "content": "Section settings"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_horizontal",
+        "min": 0,
+        "max": 10,
+        "step": 0.5,
+        "unit": "rem",
+        "label": "Padding horizontal",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_horizontal_mobile",
+        "min": 0,
+        "max": 10,
+        "step": 0.5,
+        "unit": "rem",
+        "label": "Padding horizontal - mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "margin_horizontal",
+        "min": 0,
+        "max": 10,
+        "step": 0.5,
+        "unit": "rem",
+        "label": "Margin horizontal",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "margin_horizontal_mobile",
+        "min": 0,
+        "max": 10,
+        "step": 0.5,
+        "unit": "rem",
+        "label": "Margin horizontal - mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "section_radius",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Roundness",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "border_thickness",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Border thickness",
+        "default": 0
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full width",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "content_width",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "%",
+        "label": "Content width",
+        "default": 100
+      },
+      {
+        "type": "checkbox",
+        "id": "lazy",
+        "label": "Lazy load images",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Section colors"
+      },
+      {
+        "type": "color",
+        "label": "Background",
+        "id": "background_color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color_background",
+        "label": "Background gradient",
+        "id": "background_gradient"
+      },
+      {
+        "type": "color",
+        "label": "Border",
+        "id": "border_color",
+        "default": "#84827E"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          },
+          {
+            "type": "range",
+            "id": "image_width",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Width",
+            "default": 100
+          },
+          {
+            "type": "range",
+            "id": "image_width_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Width - mobile",
+            "default": 100
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "LOGO"
+          },
+          {
+            "type": "checkbox",
+            "id": "text_custom",
+            "label": "Use custom font",
+            "default": false
+          },
+          {
+            "type": "font_picker",
+            "id": "text_font",
+            "label": "Font family",
+            "default": "josefin_sans_n4"
+          },
+          {
+            "type": "range",
+            "id": "text_size",
+            "min": 0,
+            "max": 72,
+            "step": 2,
+            "unit": "px",
+            "label": "Font size",
+            "default": 16
+          },
+          {
+            "type": "range",
+            "id": "text_size_mobile",
+            "min": 0,
+            "max": 72,
+            "step": 2,
+            "unit": "px",
+            "label": "Font size - mobile",
+            "default": 14
+          },
+          {
+            "type": "range",
+            "id": "text_height",
+            "min": 50,
+            "max": 200,
+            "step": 10,
+            "unit": "%",
+            "label": "Line height",
+            "default": 150
+          },
+          {
+            "type": "color",
+            "label": "Text",
+            "id": "text_color",
+            "default": "#84827E"
+          }
+        ]
+      },
+      {
+        "type": "column",
+        "name": "Menu",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Menu"
+          },
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Text"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        ]
+      },
+      {
+        "type": "socials",
+        "name": "Social media",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Social media"
+          },
+          {
+            "type": "header",
+            "content": "Instagram"
+          },
+          {
+            "type": "url",
+            "id": "instagram",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "instagram_text",
+            "label": "Text",
+            "default": "Instagram"
+          },
+          {
+            "type": "header",
+            "content": "Facebook"
+          },
+          {
+            "type": "url",
+            "id": "facebook",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "facebook_text",
+            "label": "Text",
+            "default": "Facebook"
+          },
+          {
+            "type": "header",
+            "content": "Twitter"
+          },
+          {
+            "type": "url",
+            "id": "twitter",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "twitter_text",
+            "label": "Text",
+            "default": "Twitter"
+          },
+          {
+            "type": "header",
+            "content": "LinkedIn"
+          },
+          {
+            "type": "url",
+            "id": "linkedin",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "linkedin_text",
+            "label": "Text",
+            "default": "LinkedIn"
+          },
+          {
+            "type": "header",
+            "content": "YouTube"
+          },
+          {
+            "type": "url",
+            "id": "youtube",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "youtube_text",
+            "label": "Text",
+            "default": "YouTube"
+          },
+          {
+            "type": "header",
+            "content": "Pinterest"
+          },
+          {
+            "type": "url",
+            "id": "pinterest",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "pinterest_text",
+            "label": "Text",
+            "default": "Pinterest"
+          },
+          {
+            "type": "header",
+            "content": "WhatsApp"
+          },
+          {
+            "type": "url",
+            "id": "whatsapp",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "whatsapp_text",
+            "label": "Text",
+            "default": "WhatsApp"
+          },
+          {
+            "type": "header",
+            "content": "TikTok"
+          },
+          {
+            "type": "url",
+            "id": "tiktok",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "tiktok_text",
+            "label": "Text",
+            "default": "TikTok"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Footer LUMA",
+        "blocks": [
+          {
+            "type": "logo"
+          },
+          {
+            "type": "column"
+          },
+          {
+            "type": "column"
+          },
+          {
+            "type": "socials"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

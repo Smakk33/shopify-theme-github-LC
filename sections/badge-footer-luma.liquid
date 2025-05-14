@@ -1,0 +1,236 @@
+{% schema %}
+{
+  "name": "Badge Fotter LUMA",
+  "class": "feature-banner-luma-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur d'arrière-plan",
+      "default": "#3a6a47"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Espacement de la section",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Caractéristique",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icône"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "TITRE DE LA CARACTÉRISTIQUE"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "label": "Taille du titre",
+          "min": 14,
+          "max": 36,
+          "step": 1,
+          "default": 20,
+          "unit": "px"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte",
+          "default": "Description de la caractéristique."
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Taille du texte",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "default": 16,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Badge Fotter LUMA",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "TRY RISK-FREE",
+            "text": "We offer a 30 day money-back guarantee."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "ALL NATURAL INGREDIENTS",
+            "text": "The health benefits you deserve."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "FLAVOUR",
+            "text": "Our tried and tasted matcha blends are delicious."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "CANADIAN OWNED",
+            "text": "Fast-shipping across North-America."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .feature-banner-luma {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding: {{ section.settings.section_padding }}px 0;
+  }
+  
+  .feature-banner-luma__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .feature-banner-luma__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 10px;
+  }
+  
+  .feature-banner-luma__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .feature-banner-luma__icon img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .feature-banner-luma__title {
+    margin: 0 0 8px 0;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  
+  .feature-banner-luma__text {
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  
+  .feature-banner-luma__carousel {
+    display: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  
+  .feature-banner-luma__carousel::-webkit-scrollbar {
+    display: none; 
+  }
+  
+  @media screen and (max-width: 767px) {
+    .feature-banner-luma__container {
+      display: none;
+    }
+    
+    .feature-banner-luma__carousel {
+      display: flex;
+      padding: 0 20px;
+    }
+    
+    .feature-banner-luma__item {
+      flex: 0 0 80%;
+      scroll-snap-align: center;
+      margin: 0 10px;
+    }
+  }
+</style>
+
+<div class="feature-banner-luma">
+  <div class="feature-banner-luma__container">
+    {% for block in section.blocks %}
+      {% if block.type == 'feature' %}
+        <div class="feature-banner-luma__item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class="feature-banner-luma__icon">
+              <img src="{{ block.settings.icon | img_url: '80x' }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+            </div>
+          {% endif %}
+          <h3 class="feature-banner-luma__title" style="font-size: {{ block.settings.title_size }}px;">
+            {{ block.settings.title }}
+          </h3>
+          <p class="feature-banner-luma__text" style="font-size: {{ block.settings.text_size }}px;">
+            {{ block.settings.text }}
+          </p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <!-- Carrousel pour mobile -->
+  <div class="feature-banner-luma__carousel">
+    {% for block in section.blocks %}
+      {% if block.type == 'feature' %}
+        <div class="feature-banner-luma__item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class="feature-banner-luma__icon">
+              <img src="{{ block.settings.icon | img_url: '80x' }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+            </div>
+          {% endif %}
+          <h3 class="feature-banner-luma__title" style="font-size: {{ block.settings.title_size }}px;">
+            {{ block.settings.title }}
+          </h3>
+          <p class="feature-banner-luma__text" style="font-size: {{ block.settings.text_size }}px;">
+            {{ block.settings.text }}
+          </p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
